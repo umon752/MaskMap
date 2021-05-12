@@ -1,0 +1,16 @@
+˙處理DOM
+只能是已在HTML內的元素
+不能視使用innerHTML印出的元素
+
+˙OSM (地圖套件)
+HTML上的<div>內包的id="map" (不可更改名稱)
+需在HTML上載入套件(CSS、JS)
+
+˙地圖樣式處理
+width=100% (將地圖大小撐開)
+max-width=扣除左側欄的寬度
+斷點時縮放指定max-width大小
+absolute right:0 (靠右定位)
+
+˙JS動態新增Class
+被動態新增的Class必須寫在CSS的最下方 (權重關係，否則吃不到效果)

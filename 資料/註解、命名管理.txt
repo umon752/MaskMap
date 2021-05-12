@@ -1,0 +1,14 @@
+/**
+ * 主分類註解
+ */
+
+
+
+/** 次分類註解 **/
+
+// 小註解
+
+˙BEM命名Class
+˙小駝峰命名JS
+˙HTML內的id為JS選取的DOM元素
+˙JS架構：DOM(document)>全域變數宣告>資料、畫面處理>事件處理>addEventListener

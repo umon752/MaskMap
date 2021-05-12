@@ -1,0 +1,413 @@
+/**
+ * base
+ */
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+input,
+select {
+    border: none;
+}
+
+input,
+select,
+button:focus {
+    outline: none;
+}
+
+// 清除search的叉號
+input[type=search] {
+
+    // 清除google的search叉號
+    &::-webkit-search-cancel-button {
+        -webkit-appearance: none;
+    }
+
+    // 清除IE的search叉號
+    &::-ms-clear {
+        display: none;
+    }
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    margin: 0 auto;
+    font-family: 'Noto Sans TC', sans-serif;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/**
+ * 自訂義Class
+ */
+// text
+.h1 {
+    font-size: $h1-font-size;
+}
+
+.h2 {
+    font-size: $h2-font-size;
+    font-weight: $font-weight-strong;
+}
+
+.h3 {
+    font-size: $h3-font-size;
+    font-weight: $font-weight-base;
+}
+
+.h4 {
+    font-size: $h4-font-size;
+    font-weight: $font-weight-base;
+}
+
+.h5 {
+    font-size: $h5-font-size;
+    font-weight: $font-weight-light;
+}
+
+.h6 {
+    font-size: $h6-font-size;
+    font-weight: $font-weight-light;
+}
+
+// bg-color
+.bg-main {
+    background: $main-color;
+}
+
+.bg-secondary {
+    background: $secondary-color;
+}
+
+.bg-info {
+    background: $gray-400;
+}
+
+
+
+/**
+ * 內容區塊
+ */
+// wrap
+.wrap {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+
+// loading
+.loading--bg {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lds-ripple {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.lds-ripple div {
+    position: absolute;
+    border: 4px solid $main-color;
+    opacity: 1;
+    border-radius: 50%;
+    animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.lds-ripple div:nth-child(2) {
+    animation-delay: -0.5s;
+}
+
+@keyframes lds-ripple {
+    0% {
+        top: 36px;
+        left: 36px;
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+
+    100% {
+        top: 0px;
+        left: 0px;
+        width: 72px;
+        height: 72px;
+        opacity: 0;
+    }
+}
+
+// sidebar
+.sidebar {
+    height: 100vh;
+    width: 25%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all .5s;
+    box-shadow: 0px 3px 6px #00000029;
+    z-index: 999;
+
+    @include md {
+        width: 30%;
+    }
+
+    @include sm {
+        width: 60%;
+    }
+
+    @include xs {
+        transform: translateX(-100%);
+    }
+
+    &__btn {
+        width: 17px;
+        height: 50px;
+        position: absolute;
+        top: 167px;
+        left: 100%;
+        background: $main-color;
+        box-shadow: 0px 3px 6px #00000029;
+        border-radius: 0px 5px 5px 0px;
+
+        &::before {
+            content: "\f053";
+            font-family: "FontAwesome";
+            color: $white-color;
+            position: absolute;
+            font-size: 6px;
+            top: 19px;
+            left: 3px;
+        }
+    }
+
+    //sidebar-header
+    &__header {
+        height: 165px;
+        padding: 12px;
+        background: $main-color;
+
+        &__block {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: $white-color;
+            margin-bottom: 14px;
+            position: relative;
+            width: 100%;
+
+            p {
+                text-align: right;
+                padding: 3px 0;
+            }
+
+            b {
+                color: $assist-color;
+                font-weight: 500;
+            }
+
+            select {
+                width: 50%;
+                border-radius: 20px;
+                padding: 8px;
+                color: $dark-color;
+
+                &:first-child {
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        input {
+            border-radius: 20px 0 0 20px;
+            padding: 10px 12px;
+            width: 85%;
+        }
+
+        // input-placeholder-color
+        ::-webkit-input-placeholder {
+            color: $gray-300;
+        }
+
+        :-moz-placeholder {
+            color: $gray-300;
+        }
+
+        ::-moz-placeholder {
+            color: $gray-300;
+        }
+
+        :-ms-input-placeholder {
+            color: $gray-300;
+        }
+
+        button {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            color: $gray-300;
+            background: none;
+            padding: 10px 12px;
+            font-size: 15px;
+            width: 15%;
+            border-radius: 0 20px 20px 0;
+            background-color: $white-color;
+
+            &:hover {
+                color: $main-color;
+            }
+        }
+    }
+
+    // sidebar-body
+    &__body {
+        height: calc(100% - 165px);
+        overflow-y: auto;
+        background-color: $white-color;
+    }
+}
+
+// 資料顯示排版
+// 左側欄標題區塊
+.item__title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon--view {
+    font-size: 22px;
+    color: $main-color;
+
+    &:hover {
+        color: $secondary-color;
+    }
+}
+
+.data__item {
+    padding: 12px;
+    border-bottom: 1px solid $gray-200;
+    // 雖然body內已寫入，但因為權重關係需再寫一次
+    font-family: 'Noto Sans TC', sans-serif;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    h2 {
+        color: $dark-color;
+    }
+
+    span {
+        display: block;
+        margin-top: 10px;
+        color: $gray-500;
+    }
+
+    .btn__block {
+        display: flex;
+
+        .quantity__block {
+            width: 50%;
+            border-radius: 20px;
+            padding: 9px 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            span {
+                margin: 0;
+                color: $white-color;
+            }
+
+            &:first-child {
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+// popup寬度
+.popup--width {
+    width: 256px;
+    padding: 0px;
+}
+
+// 地圖
+.map {
+    // 地圖大小100%顯示 
+    width: 100%;
+    height: 100%;
+    // 地圖寬度佔的比例
+    max-width: 75%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    transition: all .5s;
+
+    @include md {
+        max-width: 70%;
+    }
+
+    @include sm {
+        max-width: 40%;
+    }
+
+    @include xs {
+        max-width: 100%;
+    }
+}
+
+
+
+/**
+ * JS動態新增Class (權重關係需擺在最後)
+ */
+.hide {
+    transform: translateX(-100%);
+}
+
+.show {
+    transform: translateX(0%);
+}
+
+.active {
+    max-width: 100%;
+}
+
+.remove {
+    max-width: 40%;
+}
