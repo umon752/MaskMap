@@ -329,7 +329,7 @@ const buildMap = () => {
     });
     // 將圖資資料放到#map這個div內
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        attribution: '<a href="https://challenge.thef2e.com/user/2259" target="_blank">UI Designer Wendy</a>'
     }).addTo(map);
     // 使用 control.locate 套件
     L.control
